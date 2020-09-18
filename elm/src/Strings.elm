@@ -1,5 +1,8 @@
 module Strings exposing (checkPermutation, hasUniqueCharacters)
 
+import Utils
+
+
 {-| Check if a string is made up of only unique characters.
 
     Strings.hasUniqueCharacters "hi" == True
@@ -7,8 +10,6 @@ module Strings exposing (checkPermutation, hasUniqueCharacters)
     Strings.hasUniqueCharacters "hello" == False
 
 -}
-
-
 hasUniqueCharacters : String -> Bool
 hasUniqueCharacters string =
     String.all (checkCharacterCount string) string
@@ -38,12 +39,7 @@ checkPermutation string1 string2 =
     if String.length string1 == String.length string2 then
         string1
             |> String.split ""
-            |> List.all (stringContainsCharacter string2)
+            |> List.all (Utils.flip String.contains string2)
 
     else
         False
-
-
-stringContainsCharacter : String -> String -> Bool
-stringContainsCharacter string character =
-    String.contains character string
