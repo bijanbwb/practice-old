@@ -1,6 +1,7 @@
 module StringsTest exposing (suite)
 
 import Expect
+import Fuzz
 import Strings
 import Test exposing (Test)
 
@@ -42,5 +43,9 @@ suite =
                 \_ ->
                     Strings.checkPermutation "asdfghjk" "asdfghjl"
                         |> Expect.false "Expected the strings to be permutations of each other."
+            , Test.fuzz Fuzz.string "returns True for all cases where the strings are the same" <|
+                \string1 ->
+                    Strings.checkPermutation string1 string1
+                        |> Expect.true "Expected the strings to be permutations of each other."
             ]
         ]
