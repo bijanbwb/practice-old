@@ -37,13 +37,13 @@ checkPermutation : String -> String -> Bool
 checkPermutation string1 string2 =
     if String.length string1 == String.length string2 then
         string1
-            |> String.toList
+            |> String.split ""
             |> List.all (stringContainsCharacter string2)
 
     else
         False
 
 
-stringContainsCharacter : String -> Char -> Bool
+stringContainsCharacter : String -> String -> Bool
 stringContainsCharacter string character =
-    String.contains (String.fromChar character) string
+    String.contains character string
