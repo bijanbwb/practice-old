@@ -15,4 +15,8 @@ defmodule Strings do
       has_unique_characters(rest)
     end
   end
+
+  def has_unique_characters(_string) do
+    false
+  end
 end
