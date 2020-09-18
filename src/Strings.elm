@@ -1,16 +1,16 @@
-module Strings exposing (isUnique)
+module Strings exposing (hasUniqueCharacters)
 
 {-| Check if a string is made up of only unique characters.
 
-    Strings.isUnique "hi" == True
+    Strings.hasUniqueCharacters "hi" == True
 
-    Strings.isUnique "hello" == False
+    Strings.hasUniqueCharacters "hello" == False
 
 -}
 
 
-isUnique : String -> Bool
-isUnique string =
+hasUniqueCharacters : String -> Bool
+hasUniqueCharacters string =
     String.all (checkCharacterCount string) string
 
 
