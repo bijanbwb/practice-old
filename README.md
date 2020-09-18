@@ -2,9 +2,16 @@
 
 Data structures and algorithms practice repo.
 
-## Run Tests
+## Elixir
 
 ```sh
-$ npm install -g elm-test
+$ cd elixir
+$ mix test
+```
+
+## Elm
+
+```sh
+$ cd elm
 $ elm-test
 ```
