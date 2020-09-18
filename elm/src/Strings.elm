@@ -1,4 +1,6 @@
-module Strings exposing (checkPermutation, hasUniqueCharacters)
+module Strings exposing (checkPermutation, checkPermutationAlternate, hasUniqueCharacters)
+
+-- IMPORTS
 
 import Utils
 
@@ -43,3 +45,17 @@ checkPermutation string1 string2 =
 
     else
         False
+
+
+checkPermutationAlternate : String -> String -> Bool
+checkPermutationAlternate string1 string2 =
+    (String.length string1 == String.length string2)
+        && (sort string1 == sort string2)
+
+
+sort : String -> String
+sort string =
+    string
+        |> String.split ""
+        |> List.sort
+        |> String.join ""
